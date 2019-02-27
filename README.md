@@ -1,5 +1,5 @@
 # charity-commission-extract
-Python utilities for handling the import of data from the Charity Commission data extract
+Python utilities for handling the import of data from the Charity Commission data extract - including the SIR data (even if the Charity Commission removed the requirement for charities to fill in a summary information return in 2014, it still has some valueble info.)
 
 ## Get the data
 
@@ -25,6 +25,8 @@ adds column headings to the beginning of the files.
 2. Open the command line and navigate to the folder where you want to store the files
 3. Run the command `python /path/to/script/import.py /path/to/download/zip/RegPlusExtract_February_2015.zip`
 
+3.b To extract the SIR data run the command `python /path/to/script/importSir.py /path/to/download/zip/SirData_February_2015.zip
+
 The CSV files will be created in the directory you are in.
 
 To use elsewhere use the function `import_zip(zipfile)` where zipfile is the path to the zip.
@@ -34,6 +36,10 @@ To use elsewhere use the function `import_zip(zipfile)` where zipfile is the pat
 This script converts a .bcp file (which uses the delimiters `@**@` and `*@@*`) into a more
 standard CSV file. It can be configured to use any delimiters accepted by python's CSV
 utility.
+
+### bcp_tsv.py
+
+This script converts the .bcp file in the SirData zip (which uses tab as delimiters) into a CSV file. It also removes commas and quotes in the text to simplify the parsing (for my use this was good enough)
 
 #### Usage
 
